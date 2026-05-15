@@ -1,39 +1,41 @@
 name: Inputs
+
 on:
   workflow_dispatch:
     inputs:
+
       username:
         description: "Enter your name"
         required: true
         default: "DevOps Engineer"
+        type: string
 
       environment:
         description: "Select environment"
         required: true
-        type: "Environment"
+        type: environment
 
       deploy:
-          description: "We want to deploy "
-          required: true
-          type: boolean
-          default: false
-        
+        description: "Do you want to deploy?"
+        required: true
+        type: boolean
+        default: false
+
       log_level:
-           description: "Choose log levl"
-           type: choice
-           options: 
-               - info
-               - warn
-               - error
-          required: true
-          default: info
+        description: "Choose log level"
+        required: true
+        type: choice
+        default: info
+        options:
+          - info
+          - warn
+          - error
 
       retry_count:
         description: "Retry Count"
         required: false
-        default: 3  
-
-
+        type: number
+        default: 3
 
 jobs:
   print-inputs:
@@ -42,5 +44,8 @@ jobs:
     steps:
       - name: Print user inputs
         run: |
-          echo "Hello, ${{ github.event.inputs.username }}"
-          echo "Environment: ${{ github.event.inputs.environment }}"
+          echo "Username: ${{ inputs.username }}"
+          echo "Environment: ${{ inputs.environment }}"
+          echo "Deploy: ${{ inputs.deploy }}"
+          echo "Log Level: ${{ inputs.log_level }}"
+          echo "Retry Count: ${{ inputs.retry_count }}"
