@@ -1,0 +1,32 @@
+name: Parellel
+on: [push]
+jobs:
+  jobs-1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello World
+        run: Sleep 20
+
+  jobs-2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello World
+        run: Sleep 20
+
+  jobs-3
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello World
+        run: Sleep 20
+
+  jobs-4
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello World
+        run: Sleep 20  
+
+  jobs-5
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello World
+        run: Sleep 20                      
