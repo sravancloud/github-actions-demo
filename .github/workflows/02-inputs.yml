@@ -12,13 +12,13 @@ on:
         required: true
         type: "Environment"
 
-        deploy:
+      deploy:
           description: "We want to deploy "
           required: true
           type: boolean
           default: false
         
-        log_level:
+      log_level:
            description: "Choose log levl"
            type: choice
            options: 
@@ -28,7 +28,7 @@ on:
           required: true
           default: info
 
-        retry_count:
+      retry_count:
         description: "Retry Count"
         required: false
         default: 3  
