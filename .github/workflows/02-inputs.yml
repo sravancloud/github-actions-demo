@@ -1,0 +1,46 @@
+name: Inputs
+on:
+  workflow_dispatch:
+    inputs:
+      username:
+        description: "Enter your name"
+        required: true
+        default: "DevOps Engineer"
+
+      environment:
+        description: "Select environment"
+        required: true
+        type: "Environment"
+
+        deploy:
+          description: "We want to deploy "
+          required: true
+          type: boolean
+          default: false
+        
+        log_level:
+           description: "Choose log levl"
+           type: choice
+           options: 
+               - info
+               - warn
+               - error
+          required: true
+          default: info
+
+        retry_count:
+        description: "Retry Count"
+        required: false
+        default: 3  
+
+
+
+jobs:
+  print-inputs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print user inputs
+        run: |
+          echo "Hello, ${{ github.event.inputs.username }}"
+          echo "Environment: ${{ github.event.inputs.environment }}"
