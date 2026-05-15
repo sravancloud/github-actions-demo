@@ -1,0 +1,71 @@
+name: Print Default GitHub Variables
+
+on:
+  workflow_dispatch:
+
+jobs:
+  print-variables:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Print GitHub Context Variables
+        run: |
+          echo "===== GITHUB VARIABLES ====="
+
+          echo "Repository            : ${{ github.repository }}"
+          echo "Repository Owner      : ${{ github.repository_owner }}"
+          echo "Workflow Name         : ${{ github.workflow }}"
+          echo "Workflow Ref          : ${{ github.workflow_ref }}"
+
+          echo ""
+          echo "===== BRANCH / REF INFO ====="
+
+          echo "Git Ref               : ${{ github.ref }}"
+          echo "Branch Name           : ${{ github.ref_name }}"
+          echo "Ref Type              : ${{ github.ref_type }}"
+
+          echo ""
+          echo "===== COMMIT INFO ====="
+
+          echo "Commit SHA            : ${{ github.sha }}"
+
+          echo ""
+          echo "===== USER / ACTOR INFO ====="
+
+          echo "Triggered By          : ${{ github.actor }}"
+          echo "Triggering Actor ID   : ${{ github.actor_id }}"
+
+          echo ""
+          echo "===== EVENT INFO ====="
+
+          echo "Event Name            : ${{ github.event_name }}"
+          echo "Event Path            : ${{ github.event_path }}"
+
+          echo ""
+          echo "===== RUN INFO ====="
+
+          echo "Run ID                : ${{ github.run_id }}"
+          echo "Run Number            : ${{ github.run_number }}"
+          echo "Run Attempt           : ${{ github.run_attempt }}"
+
+          echo ""
+          echo "===== RUNNER INFO ====="
+
+          echo "Runner OS             : ${{ runner.os }}"
+          echo "Runner Architecture   : ${{ runner.arch }}"
+          echo "Runner Name           : ${{ runner.name }}"
+          echo "Runner Temp           : ${{ runner.temp }}"
+          echo "Runner Workspace      : ${{ runner.workspace }}"
+
+          echo ""
+          echo "===== WORKSPACE INFO ====="
+
+          echo "GitHub Workspace      : ${{ github.workspace }}"
+
+          echo ""
+          echo "===== JOB INFO ====="
+
+          echo "Job Status            : ${{ job.status }}"
