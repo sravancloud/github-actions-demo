@@ -10,3 +10,7 @@ jobs:
       - name: trigger PROD deploy
         if: github.ref == 'refs/heads/master'
         run: echo "deply to PROD"  
+
+      - name: trigger DEV deploy
+        if: github.ref == 'refs/heads/feature_*'
+        run: echo "deply to DEV"  
