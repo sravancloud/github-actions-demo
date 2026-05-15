@@ -1,0 +1,19 @@
+name: Timeout Example
+
+on:[push]
+concurrency:
+  group: ${{ github.repository }}-${{ github.ref }}
+  cancel-in-progress: ture
+jobs:
+  demo-job:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Start job
+        run: echo "This job will timeout after 5 minutes"
+
+      - name: Sleep for Testing
+        run: |
+          echo "Sleeping for 10 minutes"
+          sleep 400
